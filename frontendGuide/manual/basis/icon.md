@@ -1,9 +1,8 @@
 # 图标
 
-项目中有以下多种图标使用方式。
-
 * 本地图标目录：`/src/assets/svgs`
 * iconify图标集地址：[icones](https://icones.js.org/)
+* 离线图标集：`/src/assets/iconify/index.ts`
 
 ## 通过 `unocss icon` 插件加载图标
 > 组件路径：`src/components/common/Icon/index.vue`
