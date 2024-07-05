@@ -157,3 +157,24 @@
     border: 1px solid #303030;
 }
 
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: #bcbcbc;
+    line-height: inherit;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: #bcbcbc;
+}
