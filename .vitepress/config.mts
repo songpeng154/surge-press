@@ -22,6 +22,7 @@ export default defineConfig({
         ],
     },
     themeConfig: {
+        logo: '/assets/images/logo.png',
         nav: [
             {text: '介绍', link: '/introduction'},
             {
