@@ -4,7 +4,7 @@ import UnoCSS from 'unocss/vite'
 
 export default defineConfig({
     lang: 'zh-CN',
-    title: 'SIMPLE 文档',
+    title: 'Tudo Admin文档',
     description: '开箱即用',
     cleanUrls: true,
     markdown: {
@@ -66,8 +66,8 @@ export default defineConfig({
                 {
                     text: '开始',
                     items: [
-                        {text: '介绍', link: '/frontendGuide/manual/introduction'},
-                        {text: '开始使用', link: '/frontendGuide/manual/start/startUsing'}
+                        {text: '介绍', link: '/frontendGuide/manual/start/introduction'},
+                        {text: '快速上手', link: '/frontendGuide/manual/start/getStartedQuickly'}
                     ]
                 },
                 {
