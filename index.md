@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Tudo Admin"
   text: "中后台系统模板"
-  tagline: 基于最新技术，提供稳定、优雅、简单的解决方案
+  tagline: 基于最新技术，提供稳定、优雅、全面的解决方案
   image:
     src: /logo.png
     alt: Tudo Admin
@@ -19,7 +19,6 @@ hero:
     - theme: alt
       text: 预览项目
       link: /api-examples
-
 features: 
   - title: 最新技术栈
     icon: 🔨

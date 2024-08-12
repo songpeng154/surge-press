@@ -1,3 +1,4 @@
+# 快速上手
 ## 环境准备
 * [Git](https://git-scm.com/)：官网安装即可
 * [Node](https://nodejs.org/zh-cn)：>= 18.0.0

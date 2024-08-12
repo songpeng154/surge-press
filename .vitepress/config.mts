@@ -1,11 +1,11 @@
-import {defineConfig} from 'vitepress'
-import {setupContainerDemo} from "./container/demo";
+import { defineConfig } from 'vitepress'
+import { setupContainerDemo } from "./container/demo";
 import UnoCSS from 'unocss/vite'
 
 export default defineConfig({
     lang: 'zh-CN',
     title: 'Tudo Admin文档',
-    description: '开箱即用',
+    description: '开箱即用、简单高效',
     cleanUrls: true,
     markdown: {
         config(md) {
@@ -14,7 +14,7 @@ export default defineConfig({
         lineNumbers: true
     },
     vite: {
-        server:{
+        server: {
             hmr: true,
         },
         plugins: [
@@ -23,8 +23,19 @@ export default defineConfig({
     },
     themeConfig: {
         logo: '/assets/images/logo.png',
+        darkModeSwitchLabel: '主题',
+        darkModeSwitchTitle: '切换到深色模式',
+        lightModeSwitchTitle: '切换到浅色模式',
+        returnToTopLabel: '回到顶部',
+        outline: {
+            label: '页面导航',
+        },
+        docFooter: {
+            next: '下一页',
+            prev: '上一页',
+        },
         nav: [
-            {text: '介绍', link: '/introduction'},
+            { text: '介绍', link: '/introduction' },
             {
                 text: '前端指南',
                 items: [
@@ -65,15 +76,25 @@ export default defineConfig({
             '/frontendGuide/manual': [
                 {
                     text: '开始',
+                    base: '/frontendGuide/manual/start',
                     items: [
-                        {text: '介绍', link: '/frontendGuide/manual/start/introduction'},
-                        {text: '快速上手', link: '/frontendGuide/manual/start/getStartedQuickly'}
+                        { text: '介绍', link: '/introduction' },
+                        { text: '快速上手', link: '/getStartedQuickly' }
                     ]
                 },
                 {
                     text: '基础',
+                    base: '/frontendGuide/manual/basis',
                     items: [
-                        {text: '图标', link: '/frontendGuide/manual/basis/icon'},
+                        { text: '路由&菜单', link: '/routeAndMenu' },
+                        { text: '权限控制', link: '/auth' },
+                    ]
+                },
+                {
+                    text: '功能',
+                    base: '/frontendGuide/manual/function',
+                    items: [
+                        { text: '图标', link: '/icon' },
                     ]
                 }
             ],
@@ -81,21 +102,21 @@ export default defineConfig({
                 {
                     text: '开始',
                     items: [
-                        {text: '介绍', link: '/frontendGuide/components/introduction'},
-                        {text: '开始使用', link: '/frontendGuide/components/start/startUsing'}
+                        { text: '介绍', link: '/frontendGuide/components/introduction' },
+                        { text: '开始使用', link: '/frontendGuide/components/start/startUsing' }
                     ]
                 },
                 {
                     text: '基础',
                     items: [
-                        {text: '图标', link: '/frontendGuide/components/basis/icon'},
+                        { text: '图标', link: '/frontendGuide/components/basis/icon' },
                     ]
                 }
             ]
         },
 
         socialLinks: [
-            {icon: 'github', link: 'https://github.com/vuejs/vitepress'}
+            { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
         ]
     }
 })
