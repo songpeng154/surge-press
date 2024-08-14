@@ -41,7 +41,7 @@ export default defineConfig({
                 items: [
                     {
                         text: '使用手册',
-                        link: '/frontendGuide/manual/introduction'
+                        link: '/frontendGuide/manual/start/introduction'
                     },
                     {
                         text: '组件',

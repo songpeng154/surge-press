@@ -328,17 +328,19 @@ export default {
 >
 > 页面组件：
 > * `@/views/system/user/index.vue`
+> * `@/views/system/userDetails/index.vue`
 > * `@/views/system/auth/index.vue`
 >
 > 浏览器访问地址：
 > * `http://localhost:8080/#/system/user`
+> * `http://localhost:8080/#/system/userDetails`
 > * `http://localhost:8080/#/system/auth`
 
-```ts {3}
+```ts {3,8,13,17,22}
 export default {
     path: '/system',
     component: 'basic',
-    meta: { title: '关于' },
+    meta: { title: '系统管理' },
     children: [
         {
             path: '/user',
@@ -350,16 +352,6 @@ export default {
             component: 'view',
             meta: {
                 title: '用户详情',
-                permissions: [ 'system_user_details' ],
-                // 隐藏菜单
-                hideMenu: true
-            }
-        },
-        {
-            path: '/userAddOrEdit',
-            component: 'view',
-            meta: {
-                title: '添加用户',
                 // 隐藏菜单
                 hideMenu: true
             }
@@ -372,37 +364,53 @@ export default {
     ]
 } satisfies AppRouteRecordRaw
 ```
-#### 数据大屏
 
-> 系统管理路由文件地址：`@/router/modules/system.ts`
+#### 数据大屏(单页面)
+
+> 系统管理路由文件地址：`@/router/modules/data.ts`
 >
-> 浏览器访问地址：
-> * `http://localhost:8080/#/system/user/index.vue`
-> * `http://localhost:8080/#/system/auth/index.vue`
+> 页面组件：`@/views/data/index.vue`
+>
+> 浏览器访问地址：`http://localhost:8080/#/data`
 
 ```ts
 export default {
-    path: '/system',
-    component: 'basic',
-    meta: { title: '关于' },
-    children: [
-        {
-            path: '/user',
-            component: 'view',
-            meta: { title: '用户管理' }
-        },
-        {
-            path: '/auth',
-            component: 'view',
-            meta: { title: '权限管理' }
-        }
-    ]
+    path: '/data',
+    component: 'view',
+    meta: { title: '数据大屏' }
 } satisfies AppRouteRecordRaw
 ```
 
+#### vue官方(外链)
+
+> 系统管理路由文件地址：`@/router/modules/data.ts`
+>
+
+```ts {3}
+export default {
+    path: 'https://cn.vuejs.org/',
+    component: 'view',
+    meta: { title: 'Vue官方' }
+} satisfies AppRouteRecordRaw
+```
 :::
 
 ::: details 第二步：创建对应的页面组件
+```text
+views                        
+ ├── home                    // 首页
+ │  └── index.vue                    
+ ├── system                  // 系统管理  
+ │  ├── user                 // 系统管理-用户管理
+ │  │   └── index.vue    
+ │  ├── userDetails          // 系统管理-用户详情
+ │  │   └── index.vue       
+ │  ├── auth                 // 系统管理-权限管理
+ │  │   └── index.vue      
+ ├── data                    // 数据大屏
+    └── index.vue  
+```
+
 :::
 ## 路由缓存
 
@@ -418,6 +426,11 @@ export default {
     }
 } satisfies AppRouteRecordRaw
 ```
+
+::: warning
+`keepAlive`只能缓存`basic`下的`view`
+路由，目前不支持缓存 [单页面路由](/frontendGuide/manual/basis/routeAndMenu#定义单页面路由)
+:::
 
 ## 路由元数据
 
@@ -462,3 +475,69 @@ interface RouteMeta {
 ```
 
 > 文件路径：`#/router.d.ts`
+
+## 注意事项
+
+### 请勿出现菜单下面套菜单情况
+::: danger 错误写法
+```ts 
+export default {
+    path: '/system',
+    component: 'basic',
+    meta: { title: '系统管理' },
+    children: [
+        {
+            path: '/user',
+            component: 'view',
+            meta: { title: '用户管理' },
+            children:[ // [!code error]
+                { // [!code error]
+                    path: '/details', // [!code error]
+                    component: 'view', // [!code error]
+                    meta: { // [!code error]
+                        title: '用户详情', // [!code error]
+                        hideMenu: true // [!code error]
+                    } // [!code error]
+                }, // [!code error]
+            ] // [!code error]
+        }
+    ]
+} satisfies AppRouteRecordRaw
+```
+对应的页面
+```text
+views                        
+ ├── system                  
+ │  ├── user                 
+ │  │   ├── details      // [!code error]
+ │  │   │   └── index.vue    // [!code error]
+ │  │   └── index.vue    
+```
+:::
+::: tip 正确写法
+```ts {10-20}
+export default {
+    path: '/system',
+    component: 'basic',
+    meta: { title: '系统管理' },
+    children: [
+        {
+            path: '/user',
+            component: 'view',
+            meta: { title: '用户管理' },
+            children:[
+                {
+                    path: '/userDetails',
+                    component: 'view',
+                    meta: {
+                        title: '用户详情',
+                        // 隐藏菜单
+                        hideMenu: true
+                    }
+                },
+            ]
+        }
+    ]
+} satisfies AppRouteRecordRaw
+```
+:::
