@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# 概述
+# 路由&菜单
 
 本文模块会讲述如何配置路由&菜单
 
@@ -515,7 +515,7 @@ views
 ```
 :::
 ::: tip 正确写法
-```ts {10-20}
+```ts {11-19}
 export default {
     path: '/system',
     component: 'basic',
@@ -524,20 +524,27 @@ export default {
         {
             path: '/user',
             component: 'view',
-            meta: { title: '用户管理' },
-            children:[
-                {
-                    path: '/userDetails',
-                    component: 'view',
-                    meta: {
-                        title: '用户详情',
-                        // 隐藏菜单
-                        hideMenu: true
-                    }
-                },
-            ]
-        }
+            meta: { title: '用户管理' }
+        },
+        {
+            path: '/userDetails',
+            component: 'view',
+            meta: {
+                title: '用户详情',
+                // 隐藏菜单
+                hideMenu: true
+            }
+        },
     ]
 } satisfies AppRouteRecordRaw
+```
+对应的页面
+```text {5,6}
+views                        
+ ├── system                  
+ │  ├── user                 
+ │  │   └── index.vue    
+ │  ├── userDetails                 
+ │  │   └── index.vue  
 ```
 :::
