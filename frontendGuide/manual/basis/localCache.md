@@ -2,11 +2,11 @@
 outline: deep
 ---
 
-# 本地缓存
+# 浏览器缓存
 
 项目内基于[store2](https://github.com/nbubna/store)与[js-cookie](https://github.com/js-cookie/js-cookie)简单的封装了缓存方法
 
-> 缓存文件：`@src/store/caches.ts` 项目中所有的本地缓存都在这个文件
+> 缓存文件：`@src/store/caches.ts` 项目中所有的`浏览器缓存`都在这个文件
 
 ## 缓存模板
 

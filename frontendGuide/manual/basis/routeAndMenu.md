@@ -26,7 +26,7 @@ outline: deep
 type RouteComponentType = 'basic' | 'basic-view' | 'view'
 ```
 
-> 文件路径：`#/route.d.ts`
+> 文件路径：`types/route.d.ts`
 
 ## 路由类型
 
@@ -48,7 +48,7 @@ interface AppRouteRecordRaw extends OmitRouteRecordRaw {
 
 ```
 
-> 文件路径：`#/route.d.ts`
+> 文件路径：`types/route.d.ts`
 
 ## 路由定义
 
@@ -94,11 +94,11 @@ export const routes: AppRouteRecordRaw = [
         component: 'basic',
         children: [
             {
-                path: '/user',
+                path: '/system/user',
                 component: 'view',
             },
             {
-                path: '/user',
+                path: '/system/user',
                 component: 'view',
             }
         ]
@@ -116,9 +116,9 @@ export const routes: AppRouteRecordRaw = [
 ```text
 views                        
  ├── system                    
- │  ├── systemUser
+ │  ├── user
  │  │   └── index.vue         
- │  ├── systemAuth
+ │  ├── auth
  │  │   └── index.vue      
  ├── about
      └── index.vue
@@ -140,7 +140,7 @@ export const ROUTE_REGISTER: AppRouteRecordRaw = {
 }
 ```
 
-> 对应的页面组件：`@/views/register/index.vue`
+> 对应的页面组件：`src/views/register/index.vue`
 
 ### 定义一级菜单
 
@@ -152,7 +152,7 @@ export default {
 } satisfies AppRouteRecordRaw
 ```
 
-> 对应的页面组件：`@/views/about/index.vue`
+> 对应的页面组件：`src/views/about/index.vue`
 
 ### 定义二级菜单
 
@@ -165,12 +165,12 @@ export default {
     },
     children: [
         {
-            path: '/user',
+            path: '/system/user',
             component: 'view',
             meta: { title: '用户管理' }
         },
         {
-            path: '/auth',
+            path: '/system/auth',
             component: 'view',
             meta: { title: '权限管理' }
         }
@@ -179,8 +179,8 @@ export default {
 ```
 
 > 对应的页面组件：
-> * `@/views/system/user/index.vue`
-> * `@/views/system/auth/index.vue`
+> * `src/views/system/user/index.vue`
+> * `src/views/system/auth/index.vue`
 
 ### 定义多级菜单
 
@@ -193,20 +193,20 @@ export default {
     },
     children: [
         {
-            path: '/menu-1',
+            path: '/menu/menu-1',
             meta: { title: '菜单-1' },
             children: [
                 {
-                    path: '/menu-1-1',
+                    path: '/menu/menu-1/menu-1-1',
                     component: 'view',
                     meta: { title: '菜单-1-1' },
                 },
                 {
-                    path: '/menu-1-2',
+                    path: '/menu/menu-1/menu-1-2',
                     meta: { title: '菜单-1-2' },
                     children: [
                         {
-                            path: '/menu-1-2-1',
+                            path: '/menu/menu-1/menu-1-2/menu-1-2-1',
                             component: 'view',
                             meta: { title: '菜单-1-2-1' }
                         }
@@ -215,11 +215,11 @@ export default {
             ]
         },
         {
-            path: '/menu-2',
+            path: '/menu/menu-2',
             meta: { title: '菜单-2' },
             children: [
                 {
-                    path: '/menu-2-1',
+                    path: '/menu/menu-2/menu-2-1',
                     component: 'view',
                     meta: { title: '菜单-2-1' }
                 }
@@ -230,9 +230,9 @@ export default {
 ```
 
 > 对应的页面组件：
-> * `@/views/menu/menu-1/menu-1-1/index.vue`
-> * `@/views/menu/menu-1/menu-1-2/menu-1-2-1/index.vue`
-> * `@/views/menu/menu-2/menu-2-1/index.vue`
+> * `src/views/menu/menu-1/menu-1-1/index.vue`
+> * `src/views/menu/menu-1/menu-1-2/menu-1-2-1/index.vue`
+> * `src/views/menu/menu-2/menu-2-1/index.vue`
 
 ### 定义外链
 
@@ -263,7 +263,7 @@ export default {
 } satisfies AppRouteRecordRaw
 ```
 
-> 默认`Iframe`组件路径：`@/layouts/components/DefaultIframe.vue`
+> 默认`Iframe`组件路径：`src/layouts/components/DefaultIframe.vue`
 :::
 
 ::: info 自定义`iframe`容器组件
@@ -281,10 +281,9 @@ export default {
 } satisfies AppRouteRecordRaw
 ```
 
-> 自定义`Iframe`组件路径：`@/views/vue/index.vue`
+> 自定义`Iframe`组件路径：`src/views/vue/index.vue`
 
 ```vue
-
 <script setup lang="ts">
   const route = useRoute()
 </script>
@@ -305,12 +304,6 @@ export default {
 
 #### 首页
 
-> 路由文件地址：`@/router/modules/home.ts`
->
-> 页面组件：`@/views/home/index.vue`
->
-> 浏览器访问地址：`http://localhost:8080/#/home`
-
 ```ts {3}
 export default {
     path: '/home',
@@ -321,20 +314,12 @@ export default {
     }
 } satisfies AppRouteRecordRaw
 ```
-
+> 路由文件地址：`src/router/modules/home.ts`
+>
+> 页面组件：`src/views/home/index.vue`
+>
+> 浏览器访问地址：`http://localhost:8080/#/home`
 #### 系统管理
-
-> 路由文件地址：`@/router/modules/system.ts`
->
-> 页面组件：
-> * `@/views/system/user/index.vue`
-> * `@/views/system/userDetails/index.vue`
-> * `@/views/system/auth/index.vue`
->
-> 浏览器访问地址：
-> * `http://localhost:8080/#/system/user`
-> * `http://localhost:8080/#/system/userDetails`
-> * `http://localhost:8080/#/system/auth`
 
 ```ts {3,8,13,17,22}
 export default {
@@ -343,12 +328,12 @@ export default {
     meta: { title: '系统管理' },
     children: [
         {
-            path: '/user',
+            path: '/system/user',
             component: 'view',
             meta: { title: '用户管理' }
         },
         {
-            path: '/userDetails',
+            path: '/system/userDetails',
             component: 'view',
             meta: {
                 title: '用户详情',
@@ -357,21 +342,25 @@ export default {
             }
         },
         {
-            path: '/auth',
+            path: '/system/auth',
             component: 'view',
             meta: { title: '权限管理' }
         }
     ]
 } satisfies AppRouteRecordRaw
 ```
-
+> 路由文件地址：`src/router/modules/system.ts`
+>
+> 页面组件：
+> * `src/views/system/user/index.vue`
+> * `src/views/system/userDetails/index.vue`
+> * `src/views/system/auth/index.vue`
+>
+> 浏览器访问地址：
+> * `http://localhost:8080/#/system/user`
+> * `http://localhost:8080/#/system/userDetails`
+> * `http://localhost:8080/#/system/auth`
 #### 数据大屏(单页面)
-
-> 系统管理路由文件地址：`@/router/modules/data.ts`
->
-> 页面组件：`@/views/data/index.vue`
->
-> 浏览器访问地址：`http://localhost:8080/#/data`
 
 ```ts
 export default {
@@ -381,9 +370,14 @@ export default {
 } satisfies AppRouteRecordRaw
 ```
 
+> 系统管理路由文件地址：`src/router/modules/data.ts`
+>
+> 页面组件：`src/views/data/index.vue`
+>
+> 浏览器访问地址：`http://localhost:8080/#/data`
 #### vue官方(外链)
 
-> 系统管理路由文件地址：`@/router/modules/data.ts`
+> 系统管理路由文件地址：`src/router/modules/data.ts`
 >
 
 ```ts {3}
@@ -474,7 +468,7 @@ interface RouteMeta {
 }
 ```
 
-> 文件路径：`#/router.d.ts`
+> 文件路径：`types/router.d.ts`
 
 ## 注意事项
 
@@ -487,12 +481,12 @@ export default {
     meta: { title: '系统管理' },
     children: [
         {
-            path: '/user',
+            path: '/system/user',
             component: 'view',
             meta: { title: '用户管理' },
             children:[ // [!code error]
                 { // [!code error]
-                    path: '/details', // [!code error]
+                    path: '/system/user/details', // [!code error]
                     component: 'view', // [!code error]
                     meta: { // [!code error]
                         title: '用户详情', // [!code error]
@@ -522,12 +516,12 @@ export default {
     meta: { title: '系统管理' },
     children: [
         {
-            path: '/user',
+            path: '/system/user',
             component: 'view',
             meta: { title: '用户管理' }
         },
         {
-            path: '/userDetails',
+            path: '/system/userDetails',
             component: 'view',
             meta: {
                 title: '用户详情',
