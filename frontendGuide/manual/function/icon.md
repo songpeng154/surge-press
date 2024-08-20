@@ -1,3 +1,7 @@
+---
+outline: deep
+---
+
 # 图标
 
 * 本地图标目录：`/src/assets/svgs`
@@ -5,6 +9,7 @@
 * 离线图标集：`/src/assets/iconify/index.ts`
 
 ## 通过 `unocss icon` 插件加载图标
+
 > 组件路径：`src/components/common/Icon/index.vue`
 
 项目内部简单的封装了`Icon`组件，组件无需导入可以直接使用，可以离线使用。
@@ -26,7 +31,7 @@
 ```ts
 export interface IconProps {
     // 图标名称 例如：i-mdi:account | i-local:login
-    icon: 'i-'| 'i-local:' | string
+    icon: 'i-' | 'i-local:' | string
 
     // 颜色
     color?: string
@@ -42,22 +47,24 @@ export interface IconProps {
 ### 使用方式
 
 ```vue
+
 <template>
   <!-- 加载 iconify 图标 -->
   <icon icon="i-ant-design:crown-twotone" size="32px" color="red"/>
-  
+
   <!-- 加载本地SVG -->
   <icon icon="i-local:login" size="32px" color="red"/>
 </template>
 ```
 
 ## 通过`<iconify-icon>` 组件加载图标
+
 > 组件路径：`src/components/common/Icon/IconifyIcon.vue`
 
 该组件是基于[@iconify/vue](https://iconify.design/docs/icon-components/vue/)封装的。
 
 ::: warning 注意
-该组件主要目标是为了渲染菜单图标、图标选择器中的图标
+该组件主要目标是为了渲染菜单图标、图标选择器中的图标。
 :::
 
 ### 组件参数
@@ -81,14 +88,14 @@ export interface IconifyIconProps {
 ### 使用方式
 
 ```vue
+
 <template>
   <!-- 加载 iconify 图标 -->
   <iconify-icon icon="mdi:account" pointer size="18px" color="red"/>
 </template>
 ```
 
-### 图标选择器
-> 组件路径：`src/components/common/Icon/IconSelector.vue`
+## 图标选择器
 
 图标集默认引入的是`/src/assets/iconify/index.ts`中的图标。
 
@@ -97,10 +104,9 @@ export interface IconifyIconProps {
 ### 使用方式
 
 ```vue
-
 <script lang="ts" setup>
   import { ref } from "vue";
-  import IconSelector  from "@/components/common/Icon/IconSelector.vue";
+  import IconSelector from "@/components/common/Icon/IconSelector.vue";
 
   const icon = ref()
 </script>
@@ -109,6 +115,8 @@ export interface IconifyIconProps {
   <icon-selector v-model="icon"/>
 </template>
 ```
+
+> 组件路径：`src/components/common/Icon/IconSelector.vue`
 
 ### 离线使用
 
@@ -132,6 +140,7 @@ export const iconSetPrefix = IconSet.map(item => item.prefix)
 ```
 
 ## 通过`useRenderIcon` hook加载图标
+
 基于 `icon组件` 和 `iconify-icon组件`封装的，某些场景会用到。
 
 > useRenderIcon 路径：`src/hooks/components/useRenderIcon`
@@ -139,16 +148,19 @@ export const iconSetPrefix = IconSet.map(item => item.prefix)
 > icon 组件路径：`src/components/common/Icon/index.vue`
 
 > iconify-icon 组件路径：`src/components/common/Icon/IconifyIcon.vue`
+
 ### 使用方式
+
 ```vue
+
 <script lang="ts" setup>
   import useRenderIcon from "@/hooks/components/useRenderIcon"
 
-  const { RenderUnoIcon,RenderDynamicIcon } = useRenderIcon()
-  
+  const { RenderUnoIcon, RenderDynamicIcon } = useRenderIcon()
+
   // 加载 iconify 图标 
   RenderUnoIcon('i-ant-design:crown-twotone')
-  
+
   // 加载本地图标
   RenderUnoIcon('i-local:login')
 

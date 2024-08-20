@@ -2,9 +2,9 @@
 outline: deep
 ---
 
-# 路由&菜单
+# 路由 & 菜单
 
-本文模块会讲述如何配置路由&菜单
+本文模块会讲述如何配置路由 & 菜单。
 
 > 静态路由目录：
 > * `src/router/routes`
@@ -16,7 +16,7 @@ outline: deep
 
 ## 路由组件类型
 
-路由组件类型，会根据不同的类型，自动渲染不同的组件
+路由组件类型，会根据不同的类型，自动渲染不同的组件。
 
 * `basic`：具有公共部分的布局 (公共左侧菜单栏、公共头部、公共底部)
 * `basic-view`：具有公共部分的布局的页面
@@ -30,7 +30,7 @@ type RouteComponentType = 'basic' | 'basic-view' | 'view'
 
 ## 路由类型
 
-二次定义了路由类型，简化的路由配置
+二次定义了路由类型，简化的路由配置。
 
 ```ts
 
@@ -85,7 +85,7 @@ const routes = [
 :::
 ::: tip 本项目中的路由写法
 定义路由时无需定义`name`与导入页面组件，项目在内部会根据路由`path`自动找对应的页面组件，并且会自动设置页面组件`name`和路由
-`name`,路由需要缓存时无需手动给组件设置`name`
+`name`,路由需要缓存时无需手动给组件设置`name`。
 
 ```ts
 export const routes: AppRouteRecordRaw = [
@@ -129,7 +129,7 @@ views
 
 ### 定义单页面路由
 
-不具有公共部分的布局 (公共左侧菜单栏、公共头部、公共底部)，就是一个单页面，例如：登录页、注册页、404页面...
+不具有公共部分的布局 (公共左侧菜单栏、公共头部、公共底部)，就是一个单页面，例如：登录页、注册页、404页面等等。
 
 ```ts {4}
 // 注册页面
@@ -236,7 +236,7 @@ export default {
 
 ### 定义外链
 
-给`path`定义`url`即可，当用户点击`Vue官方`菜单的时候,会打开Vue官方网站
+给`path`定义`url`即可，当用户点击`Vue官方`菜单的时候,会打开Vue官方网站。
 
 ```ts {2}
 export default {
@@ -250,7 +250,7 @@ export default {
 
 ::: info 使用默认`iframe`容器组件
 给`iframeSrc`定义`url`即可，项目内默认使用`DefaultIframe`组件作为`iframe`容器，当用户点击`Vue官方`
-菜单的时候,会内嵌打开Vue官方网站
+菜单的时候,会内嵌打开Vue官方网站。
 
 ```ts {6}
 export default {
@@ -267,7 +267,7 @@ export default {
 :::
 
 ::: info 自定义`iframe`容器组件
-给`iframeSrc`定义`url`的同时再将`isCustomizeIframeComponent`设置为`true`即可，当用户点击`Vue官方`菜单的时候,会内嵌打开Vue官方网站
+给`iframeSrc`定义`url`的同时再将`isCustomizeIframeComponent`设置为`true`即可，当用户点击`Vue官方`菜单的时候,会内嵌打开Vue官方网站。
 
 ```ts {6,7}
 export default {
@@ -408,7 +408,7 @@ views
 :::
 ## 路由缓存
 
-给路由设置`keepAlive`为`true`即可，无需给路由与页面组件设置name，项目内部已自动处理
+给路由设置`keepAlive`为`true`即可，无需给路由与页面组件设置name，项目内部已自动处理。
 
 ```ts {6}
 export default {

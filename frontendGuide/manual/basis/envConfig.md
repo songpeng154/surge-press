@@ -3,7 +3,7 @@ outline: deep
 ---
 
 # 环境配置
-本项目中的环境文件，需要其他的自行添加
+本项目中的环境文件，需要其他的自行添加。
 * `.env`：通用环境
 * `.env.development`：开发环境
 * `.env.production`：生产环境
@@ -66,7 +66,7 @@ declare interface ServiceConfig {
 
 ## 获取环境变量
 
-`wrapperMetaEnv` 函数会将环境变量转成对应的类型
+`wrapperMetaEnv` 函数会将环境变量转成对应的类型。
 
 ```ts
 const { VITE_PORT } = wrapperMetaEnv()
@@ -75,7 +75,7 @@ const { VITE_PORT } = wrapperMetaEnv()
 > 代码位置：`@/utils/env.ts`
 
 ## 设置环境变量
-在 `.env`或者`.env.[xxx]` 文件中设置环境变量
+在 `.env`或者`.env.[环境模式]` 文件中设置环境变量
 
 ### `.env`通用环境
 ```.env 

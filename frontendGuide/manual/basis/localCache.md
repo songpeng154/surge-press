@@ -4,7 +4,7 @@ outline: deep
 
 # 浏览器缓存
 
-项目内基于[store2](https://github.com/nbubna/store)与[js-cookie](https://github.com/js-cookie/js-cookie)简单的封装了缓存方法
+项目内基于[store2](https://github.com/nbubna/store)与[js-cookie](https://github.com/js-cookie/js-cookie)简单的封装了缓存方法。
 
 > 缓存文件：`@src/store/caches.ts` 项目中所有的`浏览器缓存`都在这个文件
 
@@ -57,14 +57,14 @@ type createCache = <T>(key: string, type: CacheType = 'local') => CacheTemplate<
 
 * 类型：`string`
 
-缓存的key
+缓存的key。
 
 #### type
 
 * 类型：[CacheType](/frontendGuide/manual/basis/localCache#缓存类型)
 * 默认：`local`
 
-缓存类型
+缓存类型。
 
 ## 使用方式
 

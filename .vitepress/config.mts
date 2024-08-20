@@ -87,7 +87,7 @@ export default defineConfig({
                     base: '/frontendGuide/manual/basis',
                     items: [
                         { text: '环境配置', link: '/envConfig' },
-                        { text: '服务请求', link: '/serviceRequest' },
+                        { text: '服务请求 & 数据模拟Fake', link: '/serviceRequest' },
                         { text: '路由&菜单', link: '/routeAndMenu' },
                         { text: '权限控制', link: '/auth' },
                         { text: '浏览器缓存', link: '/localCache' },
