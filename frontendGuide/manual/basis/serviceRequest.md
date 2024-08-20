@@ -319,3 +319,6 @@ VITE_USE_FAKE = true
 ::: danger 注意
 不推荐在生产环境使用
 :::
+
+## 最佳实践
+使用`@tanstack/vue-query`进行异步管理。具体请看[异步解决方案]()
