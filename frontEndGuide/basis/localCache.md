@@ -61,7 +61,7 @@ type createCache = <T>(key: string, type: CacheType = 'local') => CacheTemplate<
 
 #### type
 
-* 类型：[CacheType](/frontendGuide/manual/basis/localCache#缓存类型)
+* 类型：[CacheType](/frontEndGuide/basis/localCache#缓存类型)
 * 默认：`local`
 
 缓存类型。

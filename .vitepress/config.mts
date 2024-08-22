@@ -38,34 +38,21 @@ export default defineConfig({
             { text: '介绍', link: '/introduction' },
             {
                 text: '前端指南',
-                items: [
-                    {
-                        text: '使用手册',
-                        link: '/frontendGuide/manual/start/introduction'
-                    },
-                    {
-                        text: '组件',
-                        link: '/frontendGuide/components/introduction'
-                    },
-                    {
-                        text: 'Api',
-                        link: '/frontendGuide/api'
-                    }
-                ]
+                link: '/frontEndGuide/start/introduction',
             },
             {
                 text: '后端指南',
                 items: [
                     {
-                        text: '使用手册',
+                        text: '单服务版本',
                         link: '/introduction'
                     },
                     {
-                        text: '组件',
+                        text: '微服务版本',
                         link: '/frontEndIntroduction'
                     },
                     {
-                        text: 'Api',
+                        text: 'Nest版本',
                         link: '/frontEndIntroduction'
                     }
                 ]
@@ -73,10 +60,10 @@ export default defineConfig({
         ],
 
         sidebar: {
-            '/frontendGuide/manual': [
+            '/frontEndGuide': [
                 {
                     text: '开始',
-                    base: '/frontendGuide/manual/start',
+                    base: '/frontEndGuide/start',
                     items: [
                         { text: '介绍', link: '/introduction' },
                         { text: '快速上手', link: '/getStartedQuickly' }
@@ -84,7 +71,7 @@ export default defineConfig({
                 },
                 {
                     text: '基础',
-                    base: '/frontendGuide/manual/basis',
+                    base: '/frontEndGuide/basis',
                     items: [
                         { text: '环境配置', link: '/envConfig' },
                         { text: '服务请求 & 数据模拟Fake', link: '/serviceRequest' },
@@ -95,27 +82,12 @@ export default defineConfig({
                 },
                 {
                     text: '功能',
-                    base: '/frontendGuide/manual/function',
+                    base: '/frontEndGuide/function',
                     items: [
                         { text: '图标', link: '/icon' },
                     ]
                 }
             ],
-            '/frontendGuide/components': [
-                {
-                    text: '开始',
-                    items: [
-                        { text: '介绍', link: '/frontendGuide/components/introduction' },
-                        { text: '开始使用', link: '/frontendGuide/components/start/startUsing' }
-                    ]
-                },
-                {
-                    text: '基础',
-                    items: [
-                        { text: '图标', link: '/frontendGuide/components/basis/icon' },
-                    ]
-                }
-            ]
         },
 
         socialLinks: [

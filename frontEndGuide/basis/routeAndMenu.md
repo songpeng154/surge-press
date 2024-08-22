@@ -302,7 +302,7 @@ export default {
 
 ::: details 第一步：定义路由
 
-#### 首页
+**首页**
 
 ```ts {3}
 export default {
@@ -319,7 +319,9 @@ export default {
 > 页面组件：`src/views/home/index.vue`
 >
 > 浏览器访问地址：`http://localhost:8080/#/home`
-#### 系统管理
+
+
+**系统管理**
 
 ```ts {3,8,13,17,22}
 export default {
@@ -360,7 +362,8 @@ export default {
 > * `http://localhost:8080/#/system/user`
 > * `http://localhost:8080/#/system/userDetails`
 > * `http://localhost:8080/#/system/auth`
-#### 数据大屏(单页面)
+
+**数据大屏(单页面)**
 
 ```ts
 export default {
@@ -375,7 +378,8 @@ export default {
 > 页面组件：`src/views/data/index.vue`
 >
 > 浏览器访问地址：`http://localhost:8080/#/data`
-#### vue官方(外链)
+
+**vue官方(外链)**
 
 > 系统管理路由文件地址：`src/router/modules/data.ts`
 >
@@ -423,7 +427,7 @@ export default {
 
 ::: warning
 `keepAlive`只能缓存`basic`下的`view`
-路由，目前不支持缓存 [单页面路由](/frontendGuide/manual/basis/routeAndMenu#定义单页面路由)
+路由，目前不支持缓存 [单页面路由](/frontEndGuide/basis/routeAndMenu#定义单页面路由)
 :::
 
 ## 路由元数据
