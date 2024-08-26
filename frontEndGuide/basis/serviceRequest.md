@@ -10,7 +10,7 @@ outline: deep
 
 配置服务地址或者代理地址
 
-### 类型定义
+### 类型
 
 ```ts
 // 代理类型
@@ -91,7 +91,7 @@ declare interface OtherResult<Data = any> {
 
 项目内二次封装了[axios](https://github.com/axios/axios),封装的目的是为了统一响应结构，不管是响应成功还是失败都返回固定的格式。
 
-### 类型定义
+### 类型
 
 ```ts
 import { AxiosError, AxiosRequestConfig, AxiosResponse, CreateAxiosDefaults } from 'axios'

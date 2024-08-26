@@ -78,6 +78,7 @@ export default defineConfig({
                         { text: '路由&菜单', link: '/routeAndMenu' },
                         { text: '权限控制', link: '/auth' },
                         { text: '浏览器缓存', link: '/localCache' },
+                        { text: '主题', link: '/theme' },
                     ]
                 },
                 {

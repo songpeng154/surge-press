@@ -90,7 +90,7 @@ async getUserRoutes() {
 
 通过`useAuthStore`的`initServerRouteAuth`方法初始化前端路由
 ```ts
- async initServerRouteAuth() {
+async initServerRouteAuth() {
     // 获取用户路由
     await this.getUserRoutes()
     // 自定义路由转Vue路由
