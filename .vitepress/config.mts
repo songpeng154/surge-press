@@ -86,7 +86,16 @@ export default defineConfig({
                     base: '/frontEndGuide/function',
                     items: [
                         { text: '图标', link: '/icon' },
-                        { text: '表单', link: '/form' },
+                        {
+                            text: '表单',
+                            link: '/form',
+                            items: [
+                                {
+                                    text: '通用类型',
+                                    link: '/form-common'
+                                }
+                            ]
+                        },
                     ]
                 }
             ],
